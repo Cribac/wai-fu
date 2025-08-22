@@ -5,17 +5,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    # environment:
-    #   - NODE_ENV=production
-    #   - AUTH_SECRET=${AUTH_SECRET}
-    #   - AUTH_TRUST_HOST=${AUTH_TRUST_HOST}
-    #   - BACKEND_BASE_URL=${BACKEND_BASE_URL}
-    #   - BACKEND_SCHEMA_URL=${BACKEND_SCHEMA_URL}
-    #   - BACKEND_SYSTEM_TOKEN=${BACKEND_SYSTEM_TOKEN}
-    #   - FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
-    #   - NEXT_PUBLIC_UPLOAD_FILES_HOST=${NEXT_PUBLIC_UPLOAD_FILES_HOST}
-    # env_file:
-    #   - .env
     restart: unless-stopped
     networks:
       - app-network
@@ -33,17 +22,6 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
-    # environment:
-    #   - NODE_ENV=development
-    #   - AUTH_SECRET=${AUTH_SECRET}
-    #   - AUTH_TRUST_HOST=${AUTH_TRUST_HOST}
-    #   - BACKEND_BASE_URL=${BACKEND_BASE_URL}
-    #   - BACKEND_SCHEMA_URL=${BACKEND_SCHEMA_URL}
-    #   - BACKEND_SYSTEM_TOKEN=${BACKEND_SYSTEM_TOKEN}
-    #   - FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
-    #   - NEXT_PUBLIC_UPLOAD_FILES_HOST=${NEXT_PUBLIC_UPLOAD_FILES_HOST}
-    # env_file:
-    #   - .env
     command: pnpm run dev
     profiles:
       - dev
