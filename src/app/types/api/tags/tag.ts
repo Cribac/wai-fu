@@ -11,14 +11,14 @@ export type TTagsFull = TTagFull[]
 
 export interface ITags {
   versatile: TTags
-  nsfw: TTags
+  nsfw?: TTags
 }
 
 export interface ITagsFull {
   versatile: TTagsFull
-  nsfw: TTagsFull
+  nsfw?: TTagsFull
 }
 
 export interface ITagsError {
-  error: string
+  detail: string
 }
