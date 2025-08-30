@@ -1,4 +1,5 @@
 import HelloWorld from '@/app/components/atoms/ui/HelloWorld.ui.component'
+import { EmblaSlider, EmblaSlide } from '@/app/components/atoms/slider/embla-slider.component'
 
 export default function Home() {
   return (
@@ -8,6 +9,11 @@ export default function Home() {
       <p>
         <HelloWorld />
       </p>
+      <EmblaSlider>
+        <EmblaSlide>Slide 1</EmblaSlide>
+        <EmblaSlide>Slide 2</EmblaSlide>
+        <EmblaSlide>Slide 3</EmblaSlide>
+      </EmblaSlider>
     </div>
   )
 }
