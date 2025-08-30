@@ -3,6 +3,7 @@ import { afterAll, afterEach, beforeAll } from 'vitest'
 import { setupServer } from 'msw/node'
 import { http, HttpResponse } from 'msw'
 import { normalTags, fullTags } from './mocks/tags'
+import { imagesResponse } from './mocks/images'
 
 loadEnvFile('.env')
 
@@ -15,6 +16,16 @@ export const restHandlers = [
     }
 
     return HttpResponse.json(normalTags)
+  }),
+
+  http.get(`${process.env.API_URL}/images`, ({ request }) => {
+    const url = new URL(request.url)
+
+    if (url.searchParams.get('full') === 'true') {
+      return HttpResponse.json(imagesResponse)
+    }
+
+    return HttpResponse.json(imagesResponse)
   }),
 ]
 
