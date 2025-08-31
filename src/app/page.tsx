@@ -1,7 +1,10 @@
 import HelloWorld from '@/app/components/atoms/ui/HelloWorld.ui.component'
-import { EmblaSlider, EmblaSlide } from '@/app/components/atoms/slider/embla-slider.component'
+import ImageSlider from '@/app/components/molecules/image-slider.component'
+import { fetchImages } from '@/app/actions/images/imagesActions'
 
-export default function Home() {
+export default async function Home() {
+  const result = await fetchImages({ limit: 10, gif: false })
+
   return (
     <div className="font-sans">
       <h1>Home</h1>
@@ -9,11 +12,7 @@ export default function Home() {
       <p>
         <HelloWorld />
       </p>
-      <EmblaSlider>
-        <EmblaSlide>Slide 1</EmblaSlide>
-        <EmblaSlide>Slide 2</EmblaSlide>
-        <EmblaSlide>Slide 3</EmblaSlide>
-      </EmblaSlider>
+      {'images' in result && <ImageSlider images={result.images} />}
     </div>
   )
 }

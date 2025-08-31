@@ -18,7 +18,7 @@ export const restHandlers = [
     return HttpResponse.json(normalTags)
   }),
 
-  http.get(`${process.env.API_URL}/images`, ({ request }) => {
+  http.get(`${process.env.API_URL}/search`, ({ request }) => {
     const url = new URL(request.url)
 
     if (url.searchParams.get('full') === 'true') {

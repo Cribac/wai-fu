@@ -3,6 +3,7 @@
 import { IImageResponse, IImagesError } from '@/app/types'
 
 interface IImageQueryParams {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
   included_tags?: string[]
   excluded_tags?: string[]
@@ -38,7 +39,8 @@ export async function fetchImages(params: IImageQueryParams): Promise<IImageResp
     const response = await fetch(requestUrl, {
       method: 'GET',
     })
-    return await response.json()
+    const result = await response.json()
+    return result
   } catch (error) {
     if (error instanceof Error) {
       return { detail: error.message } as IImagesError

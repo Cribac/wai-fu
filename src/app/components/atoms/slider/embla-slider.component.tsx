@@ -1,30 +1,14 @@
-'use client'
-
-import { useEffect } from 'react'
 import clsx from 'clsx'
-import useEmblaCarousel from 'embla-carousel-react'
-import type { EmblaOptionsType } from 'embla-carousel'
+import { EmblaViewportRefType } from 'embla-carousel-react'
 
 interface IEmblaSliderProps {
+  emblaRef: EmblaViewportRefType
   children: React.ReactNode
-  sliderOptions?: EmblaOptionsType
   overflowWrapperClassName?: string
   scrollContainerClassName?: string
 }
 
-const EmblaSlider = ({
-  children,
-  sliderOptions,
-  overflowWrapperClassName,
-  scrollContainerClassName,
-}: IEmblaSliderProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(sliderOptions)
-
-  useEffect(() => {
-    if (!emblaApi) return
-    emblaApi.reInit()
-  }, [emblaApi])
-
+const EmblaSlider = ({ children, emblaRef, overflowWrapperClassName, scrollContainerClassName }: IEmblaSliderProps) => {
   return (
     <div ref={emblaRef} className={clsx('embla', overflowWrapperClassName)}>
       <div className={clsx('embla__container', scrollContainerClassName)}>{children}</div>
