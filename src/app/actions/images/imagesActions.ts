@@ -40,6 +40,9 @@ export async function fetchImages(params: IImageQueryParams): Promise<IImageResp
       method: 'GET',
     })
     const result = await response.json()
+
+    console.log('image query result', result)
+
     return result
   } catch (error) {
     if (error instanceof Error) {

@@ -5,6 +5,8 @@ import { fetchImages } from '@/app/actions/images/imagesActions'
 export default async function Home() {
   const result = await fetchImages({ limit: 10, gif: false })
 
+  console.log('result', result)
+
   return (
     <div className="font-sans">
       <h1>Home</h1>

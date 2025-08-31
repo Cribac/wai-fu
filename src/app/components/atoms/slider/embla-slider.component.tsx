@@ -4,15 +4,24 @@ import { EmblaViewportRefType } from 'embla-carousel-react'
 interface IEmblaSliderProps {
   emblaRef: EmblaViewportRefType
   children: React.ReactNode
+  emblaSectionClassName?: string
   overflowWrapperClassName?: string
   scrollContainerClassName?: string
 }
 
-const EmblaSlider = ({ children, emblaRef, overflowWrapperClassName, scrollContainerClassName }: IEmblaSliderProps) => {
+const EmblaSlider = ({
+  children,
+  emblaRef,
+  emblaSectionClassName,
+  overflowWrapperClassName,
+  scrollContainerClassName,
+}: IEmblaSliderProps) => {
   return (
-    <div ref={emblaRef} className={clsx('embla', overflowWrapperClassName)}>
-      <div className={clsx('embla__container', scrollContainerClassName)}>{children}</div>
-    </div>
+    <section className={clsx('margin-auto max-w-[48rem]', emblaSectionClassName)}>
+      <div ref={emblaRef} className={clsx('overflow-hidden', overflowWrapperClassName)}>
+        <div className={clsx('flex ml-[calc(-1 * var(--slide-spacing))]', scrollContainerClassName)}>{children}</div>
+      </div>
+    </section>
   )
 }
 
@@ -22,7 +31,13 @@ interface IEmblaSlideProps {
 }
 
 const EmblaSlide = ({ children, className }: IEmblaSlideProps) => (
-  <div className={clsx('embla__slide', className)}>{children}</div>
+  <div
+    className={clsx(
+      'flex-shrink-0 flex-basis-[var(--slide-size)] min-w-0 pl-[calc(var(--slide-spacing))]]',
+      className,
+    )}>
+    {children}
+  </div>
 )
 
 export { EmblaSlider, EmblaSlide }
