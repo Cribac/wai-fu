@@ -23,11 +23,18 @@ export default function ImageSlider({ images }: IImageSliderProps) {
   }, [emblaApi])
 
   return (
-    <div className="flex items-center justify-center">
-      <EmblaSlider emblaRef={emblaRef}>
+    <div className="flex items-center justify-center w-full">
+      <EmblaSlider emblaRef={emblaRef} emblaSectionClassName="w-full overflow-hidden">
         {images.map((image) => (
           <EmblaSlide key={image.image_id}>
-            <img src={image.url} alt="" />
+            {/* ensure each slide takes full viewport width so only one is visible */}
+            <div className="flex items-center justify-center w-full min-w-full flex-none h-40 sm:h-56 md:h-72">
+              <img
+                src={image.url}
+                alt={String(image.image_id) ?? ''}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
           </EmblaSlide>
         ))}
       </EmblaSlider>
