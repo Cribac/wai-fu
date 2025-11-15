@@ -8,13 +8,13 @@ export default async function Home() {
   console.log('result', result)
 
   return (
-    <div className="font-sans">
+    <main className="font-sans">
       <h1>Home</h1>
       <p>Whereas disregard and contempt for human rights have resulted</p>
       <p>
         <HelloWorld />
       </p>
-      {'images' in result && <ImageSlider images={result.images} />}
-    </div>
+      <div className="tbd">{'images' in result && <ImageSlider images={result.images} />}</div>
+    </main>
   )
 }
