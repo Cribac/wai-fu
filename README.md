@@ -1,3 +1,8 @@
+Moved to [Codeberg](https://codeberg.org/Cribac/wai-fu).
+
+Archived and discontinued here.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
